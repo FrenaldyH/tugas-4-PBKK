@@ -1,0 +1,75 @@
+/* Inter is the documented open-source substitute for BMW Type Next Latin.
+   Loaded from node_modules via Vite — never from a CDN. */
+@import '@fontsource-variable/inter';
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+/* Drive `dark:` utilities from a .dark class instead of the OS setting,
+   so a Blade variable (?mode=dark) can toggle the theme. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Design tokens taken from doc/DESIGN-bmw.md */
+@theme {
+    --font-sans: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+    --color-primary: #1c69d4;
+    --color-primary-active: #0653b6;
+    --color-ink: #262626;
+    --color-body: #3c3c3c;
+    --color-muted: #6b6b6b;
+    --color-hairline: #e6e6e6;
+    --color-hairline-strong: #cccccc;
+    --color-canvas: #ffffff;
+    --color-surface-soft: #f7f7f7;
+    --color-surface-card: #fafafa;
+    --color-surface-dark: #1a2129;
+    --color-surface-dark-elevated: #262e38;
+    --color-on-dark: #ffffff;
+    --color-on-dark-soft: #bbbbbb;
+    --color-success: #22c55e;
+    --color-error: #dc2626;
+
+    --text-display-xl: 64px;
+    --text-display-xl--line-height: 1.05;
+    --text-display-lg: 48px;
+    --text-display-lg--line-height: 1.1;
+    --text-display-md: 32px;
+    --text-display-md--line-height: 1.15;
+    --text-display-sm: 24px;
+    --text-display-sm--line-height: 1.25;
+
+    --spacing-section: 80px;
+}
+
+@layer base {
+    /* BMW's editorial signature: Light 300 body against weight 700 display. */
+    body {
+        font-weight: 300;
+    }
+}
+
+/* BMW inline CTA style — uppercase, 1.5px tracking ("LEARN MORE >") */
+@utility link-cta {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* BMW primary CTA — rectangular, 48px tall, corporate blue */
+@utility btn-primary {
+    display: inline-flex;
+    align-items: center;
+    height: 48px;
+    padding: 0 32px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--color-on-dark);
+    background-color: var(--color-primary);
+}
